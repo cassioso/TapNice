@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="screenBackground">#536dfe</color>
+    <color name="buttonBackground">#bbdefb</color>
+
+    <color name="score_nice">#FF303F9F</color>
+    <color name="score_regular">#64dd17</color>
+    <color name="score_meh">#ffea00</color>
+    <color name="score_shame">#d50000</color>
+</resources>

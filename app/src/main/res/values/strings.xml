@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tap Nice</string>
+    <string name="initial_score">0</string>
+    <string name="tap_level">TAP LEVEL: %s</string>
+    <string name="top_score">TOP SCORE: %d</string>
+    <string name="your_score">YOUR SCORE: %d</string>
+</resources>

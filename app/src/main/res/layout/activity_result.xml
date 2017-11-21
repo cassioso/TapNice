@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.u8mobile.tapnice.ResultActivity">
+
+    <TextView
+        android:id="@+id/tvTopScore"
+        style="@style/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/top_score"
+        android:textSize="32sp"
+        android:transitionName="topScore" />
+
+    <TextView
+        android:id="@+id/tvScore"
+        style="@style/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/your_score"
+        android:textSize="32sp"
+        android:transitionName="score"
+        app:layout_constraintBottom_toTopOf="@+id/tvTapLevel" />
+
+    <LinearLayout
+        android:id="@+id/llTapHistory"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_margin="8dp"
+        android:animateLayoutChanges="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        tools:layout_width="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/llTapResultList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:padding="4dp"
+        tools:layout_width="match_parent" />
+
+    <TextView
+        android:id="@+id/tvTapLevel"
+        style="@style/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/tap_level"
+        android:textSize="32sp"
+        android:transitionName="tapQuality" />
+
+</LinearLayout>
