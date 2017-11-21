@@ -19,7 +19,7 @@ enum class TapLevel(val score: Int, val colorResId: Int, val maxScore: Long) : S
             get() = createSortedTapList()
 
         val tapList = ArrayList<TapLevel>()
-        var totalScore = 0L
+        var totalScore = 0
 
         fun evaluate(value: Long): TapLevel {
             return TapLevel.values().filter { it.maxScore >= value && it != NONE }[0]
@@ -35,7 +35,7 @@ enum class TapLevel(val score: Int, val colorResId: Int, val maxScore: Long) : S
 
             val tapLevel = TapLevel.evaluate(deltaGap)
             tapList.add(tapLevel)
-            totalScore.and(tapLevel.score.toLong())
+            totalScore = totalScore.plus(tapLevel.score)
 
             return tapLevel
         }
@@ -43,7 +43,7 @@ enum class TapLevel(val score: Int, val colorResId: Int, val maxScore: Long) : S
         fun reset() {
             lastTimeMillis = 0L
             lastDeltaTimeMillis = 0L
-            totalScore = 0L
+            totalScore = 0
             sortedTapList = null
             tapList.clear()
         }

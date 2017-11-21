@@ -18,15 +18,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupTopScore()
-        setupTap()
-    }
-
-    private fun setupTopScore() {
         bindTopScore(App.prefs!!.topScore)
+        bindTap()
     }
 
-    private fun setupTap() {
+    private fun bindTopScore(score: Int) {
+
+        if (score > App.prefs!!.topScore) {
+            App.prefs!!.topScore = score
+        }
+
+        tvTopScore.text = String.format(getString(R.string.top_score), App.prefs!!.topScore)
+    }
+
+    private fun bindTap() {
         rootView.setOnClickListener({
             setupCountDownTimer()
             computeScore()
@@ -74,16 +79,9 @@ class MainActivity : AppCompatActivity() {
         rootView.setBackgroundResource(tapLevel.colorResId)
     }
 
-    private fun bindTopScore(score: Int) {
-
-        if (score > App.prefs!!.topScore) {
-            App.prefs!!.topScore = score
-        }
-
-        tvTopScore.text = String.format(getString(R.string.top_score), App.prefs!!.topScore)
-    }
-
     private fun showResultScreen() {
+        pause()
+
         val options = ActivityOptions.makeSceneTransitionAnimation(
                 this,
                 android.util.Pair(tvScore, tvScore.transitionName),
@@ -96,18 +94,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun reset() {
+    private fun pause() {
         countDownTimer?.cancel()
+        countDownTimer = null
         progressBar.progress = progressBar.max
+    }
+
+    private fun stop() {
+        pause()
         updateTextScore(0)
         updateTapLevel(TapLevel.NONE)
         bindTopScore(0)
         TapLevel.reset()
-        countDownTimer = null
     }
 
     override fun onResume() {
         super.onResume()
-        reset()
+        stop()
     }
 }
